@@ -40,10 +40,15 @@ run visudo and edit
 
 for example
 ```bash
-#add administrative user to wheel group
+#allow wheel group to use sudo
 %wheel ALL=(ALL) ALL
 #for pacdiff
 Defaults env_keep += "DIFFPROG"
 #for config
 Defaults env_keep += "HOME XDG_CONFIG_HOME"
+```
+then
+```bash
+#add administrative user as wheel group
+useradd -m -G wheel -s /usr/bin/your_prefer_shell your_name
 ```

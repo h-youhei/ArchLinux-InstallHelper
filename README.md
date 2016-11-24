@@ -1,3 +1,4 @@
+# Arch Linux install helper
 By default, this helper won't match your preference.
 
 But you can customize or refer it.
@@ -51,4 +52,19 @@ then
 ```bash
 #add administrative user as wheel group
 useradd -m -G wheel -s /usr/bin/your_prefer_shell your_name
+passwd your_name
+```
+
+## Package backup/restore
+### Backup
+```bash
+cd path_to_this_repository
+./package-backup.sh
+cp -r backup path_to_your_backup
+```
+### Restore
+```bash
+cd path_to_your_backup
+pacman -S `cat main.plst`
+aura -A `cat aur.plst`
 ```

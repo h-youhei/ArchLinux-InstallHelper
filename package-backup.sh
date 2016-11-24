@@ -4,7 +4,7 @@ case $# in
 	1 )
 		break ;;
 	0 )
-		echo "pass output path"
+		echo "pass me output path"
 		exit 1 ;;
 	* )
 		echo "too many argument"
@@ -13,6 +13,11 @@ esac
 
 test ! -e "$1" && mkdir -p $1
 cd $1
+if test "$?" -ne 0
+then
+	echo "you passed me not a directory"
+	exit 1
+fi
 
 #get package list
 pacman -Qqe > all.plst

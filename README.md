@@ -10,6 +10,13 @@ use systemd-boot as bootloader
 
 use aura as AUR Helper
 
+## Partitioning plan
+see [Arch Wiki/Partitioning](https://wiki.archlinux.org/index.php/Partitioning)
+
+I prefer use gdisk, part boot, root, home and backup.
+
+when I want to change or reinstall OS; if I make backup partition, I can mount backup, add script and file. these become my knife; if I make home partition, I can keep home directory.
+
 ## Install
 see [Arch Wiki/Installation guide](https://wiki.archlinux.org/index.php/Installation_guide), then follow it until fstab.
 

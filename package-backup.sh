@@ -1,9 +1,18 @@
 #!/bin/sh
 
-script_path=`readlink -f $0`
-script_dir=`dirname $script_path`
+case $# in
+	1 )
+		break ;;
+	0 )
+		echo "pass output path"
+		exit 1 ;;
+	* )
+		echo "too many argument"
+		exit 1 ;;
+esac
 
-cd $script_dir/backup
+test ! -e "$1" && mkdir -p $1
+cd $1
 
 #get package list
 pacman -Qqe > all.plst

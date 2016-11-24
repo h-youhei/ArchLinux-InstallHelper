@@ -10,4 +10,3 @@ locale-gen
 
 $script_dir/boot-setup.sh
 $script_dir/firewall-setup.sh
-$script_dir/aura-install.sh

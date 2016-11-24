@@ -6,6 +6,7 @@ But you can customize or refer it.
 SSD, UEFI, simple firewall
 
 use systemd-boot as bootloader
+
 use aura as AUR Helper
 
 ## Install

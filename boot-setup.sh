@@ -4,9 +4,7 @@ script_path=`readlink -f $0`
 script_dir=`dirname $script_path`
 cd $script_dir
 
-entries_dir=/boot/loader/entries
-mkdir -p $entries_dir
-cp -r --preserve=mode loader /boot
+cp -r loader /boot
 
 cd /boot/loader/entries
 partition=`findmnt -l | grep '/ ' | awk '{print $2}'`

@@ -9,4 +9,3 @@ echo "LANG=en_US.UTF-8\nLANG=ja_JP.UTF-8" >> /etc/locale.gen
 locale-gen
 
 $script_dir/boot-setup.sh
-$script_dir/firewall-setup.sh

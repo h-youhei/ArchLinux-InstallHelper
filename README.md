@@ -13,25 +13,19 @@ use aura as AUR Helper
 ## Partitioning plan
 see [Arch Wiki/Partitioning](https://wiki.archlinux.org/index.php/Partitioning)
 
-I prefer use gdisk, part boot, root, home and backup.
+I prefer use gdisk, part boot, root and home.
 
-when I want to change or reinstall OS; if I make backup partition, I can mount backup, add script and file. these become my knife; if I make home partition, I can keep home directory.
+if I make home partition, I can keep home directory when I want to change or reinstall OS.
 
 ## Install
 see [Arch Wiki/Installation guide](https://wiki.archlinux.org/index.php/Installation_guide), then follow it until fstab.
 
+note:format /boot as vfat32
+
 see [Arch Wiki/fstab](https://wiki.archlinux.org/index.php/Fstab#Identifying_filesystems), run genfstab, then edit /mnt/etc/fstab.
 
-for example,
-```bash
-#(still) means not changed
-#in (x to y) means edit x to y
-#if you use HDD, don't add discard
-<dev>        <dir> <type>   <options>                                              <dump/fsck>
-UUID=(still) /boot (still)  (noatime to relatime),discard,(still)                  0 2
-UUID=(still) /     (still)  (rw to defaults),(noatime to relatime),discard,(still) 0 1
-UUID=(still) /home (still)  (rw to defaults),(noatime to relatime),discard,(still) 0 2
-```
+note:if you use SSD, enable trim. therefore set discard option except /boot. since vfat doesn't support trim.
+
 then
 ```bash
 arch-chroot /mnt
@@ -43,7 +37,7 @@ passwd
 #type password for root
 ```
 then
-
+```bash
 see [Arch Wiki/sudo](https://wiki.archlinux.org/index.php/Sudo)
 
 run visudo and edit
@@ -60,8 +54,9 @@ Defaults env_keep += "HOME XDG_CONFIG_HOME"
 then
 ```bash
 #add administrative user as wheel group
-useradd -m -G wheel -s /usr/bin/your_prefer_shell your_name
-passwd your_name
+useradd -m -G wheel -s /usr/bin/your_prefer_shell user_name
+passwd user_name
+#type password for user
 ```
 
 ## Package backup/restore

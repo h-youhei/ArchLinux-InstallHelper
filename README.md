@@ -58,25 +58,3 @@ useradd -m -G wheel -s /usr/bin/your_prefer_shell user_name
 passwd user_name
 #type password for user
 ```
-
-## Package backup/restore
-you can modify backup script about abs group if you need
-```bash
-#line 20
-pacman -Qqg | grep '^user ' <- here  ...  > abs.plst
-```
-
-### Backup
-```bash
-cd path_to_this_repository
-./package-backup.sh path_to_your_backup
-```
-
-### Restore
-```bash
-cd path_to_your_backup
-pacman -S `cat main.plst`
-aura -A `cat aur.plst`
-#you can see abs package. build it yourself.
-cat abs.plst
-```

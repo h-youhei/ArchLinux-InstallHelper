@@ -4,7 +4,7 @@ By default, this helper won't match your preference.
 But you can customize or refer it.
 
 ## feature
-SSD, UEFI, simple firewall
+intel CPU, SSD, UEFI
 
 use systemd-boot as bootloader
 
@@ -37,12 +37,12 @@ passwd
 #type password for root
 ```
 then
-```bash
+
 see [Arch Wiki/sudo](https://wiki.archlinux.org/index.php/Sudo)
 
-run visudo and edit
+`visudo`
 
-for example
+for example,
 ```bash
 #allow wheel group to use sudo
 %wheel ALL=(ALL) ALL

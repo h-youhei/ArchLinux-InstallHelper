@@ -1,8 +1,5 @@
 #!/bin/sh
 
-rm /etc/resolv.conf
-ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
-
 list=`networkctl list`
 echo "$list"
 printf "choose network. type IDX (default 2):"
@@ -31,6 +28,9 @@ NAME=$name
 [Network]
 DHCP=yes
 END
+
+rm /etc/resolv.conf
+ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 systemctl enable systemd-networkd.service
 systemctl enable systemd-resolved.service

@@ -20,6 +20,8 @@ if I make home partition, I can keep home directory when I want to change or rei
 ## Install
 see [Arch Wiki/Installation guide](https://wiki.archlinux.org/index.php/Installation_guide), then follow it until fstab.
 
+If you use filesystem that fstools is not included in base group, install it by pacman. and run `mkinitcpio -p linux`
+
 note:format /boot as vfat32
 
 see [Arch Wiki/fstab](https://wiki.archlinux.org/index.php/Fstab#Identifying_filesystems), run genfstab, then edit /mnt/etc/fstab.
@@ -36,6 +38,7 @@ cd ArchLinux-InstallHelper
 passwd
 #type password for root
 ```
+
 then
 
 see [Arch Wiki/sudo](https://wiki.archlinux.org/index.php/Sudo)

@@ -9,6 +9,6 @@ cp -r loader /boot
 cd /boot/loader/entries
 partition=`findmnt -l | grep '/ ' | awk '{print $2}'`
 uuid=`blkid -o value -s UUID $partition`
-echo "options root=$uuid rw" | tee -a arch.conf >> arch-lts.conf
+echo "options root=UUID=$uuid rw" | tee -a arch.conf >> arch-lts.conf
 
 bootctl install
